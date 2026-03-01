@@ -241,3 +241,30 @@ GET /qa?q=Summarize climate risk management approach
 * Secure containerization (non-root Docker user)
 * Extensible design for multi-document and agent workflows
 
+
+## What I Would Improve With More Time
+
+* Cross-encoder reranker for higher precision
+* Query result caching
+* Structured citation formatting per claim
+* UI-based document upload + reindex
+* Access-controlled API + auth
+* Async background ingestion jobs
+
+---
+
+## Demo Queries
+
+Try:
+
+* “Summarize the company’s climate risk management approach.”
+* “What emissions targets are mentioned? Cite pages.”
+* “Which sections discuss governance and compliance?”
+
+You should see:
+
+* Grounded answers
+* Explicit citations
+* Retrieval transparency
+* Faithfulness metrics in Langfuse
+
