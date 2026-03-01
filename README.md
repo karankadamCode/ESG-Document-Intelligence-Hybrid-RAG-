@@ -1,4 +1,4 @@
-# ESG Document Intelligence – Hybrid RAG Case Study
+# ESG Document Intelligence – Hybrid RAG + Agentic Routing Case Study
 
 A production-oriented **document intelligence system** for asking natural-language questions over large ESG and sustainability reports and receiving **grounded, explainable answers with citations**.
 
