@@ -134,6 +134,88 @@ Provide accurate, explainable Q&A over ESG / sustainability reports by:
 
 ---
 
+---
+
+## Setup
+
+### 1) Create virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate:
+
+* Windows: `venv\Scripts\activate`
+* macOS/Linux: `source venv/bin/activate`
+
+---
+
+### 2) Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 3) Configure environment variables
+
+Create `.env` in project root:
+
+```env
+OPENAI_API_KEY=your_key_here
+EMBEDDING_PROVIDER=openai
+OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+VECTORSTORE_PATH=vectorstore/faiss_index
+DATA_DIR=data
+CHUNK_SIZE=900
+CHUNK_OVERLAP=150
+
+LANGFUSE_SECRET_KEY=your_key
+LANGFUSE_PUBLIC_KEY=your_key
+LANGFUSE_BASE_URL=https://cloud.langfuse.com
+LANGFUSE_ENABLED=true
+```
+
+---
+
+### 4) Build the vector index
+
+```bash
+python faiss_ingest.py
+```
+
+This will:
+
+* Load ESG PDFs
+* Chunk text
+* Generate embeddings
+* Persist FAISS index to disk
+
+---
+
+### 5) Run the Streamlit UI
+
+```bash
+streamlit run app.py
+```
+
+---
+
+### 6) Run the API
+
+```bash
+uvicorn api:app --host 0.0.0.0 --port 8000
+```
+
+Example:
+
+```http
+GET /qa?q=Summarize climate risk management approach
+```
+
+---
 ## Evaluation & Testing
 
 * **DeepEval metrics**
